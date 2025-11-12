@@ -3,13 +3,13 @@ import { useState } from "react";
 import Navbar from "@/Components/Navbar";
 import CategoryCard from "@/Components/CategoryCard";
 import CategoryDetailModal from "@/Components/CategoryDetailModal";
-import { Shield, Users, MessageCircle, CreditCard, UserX, Wallet, ShoppingCart, Building, Baby, Clock, Heart } from "lucide-react";
+import { Shield, Users, MessageCircle, CreditCard, UserX, Wallet, ShoppingCart, Building, Baby, Clock, Heart, LucideIcon } from "lucide-react";
 
 export interface Category {
   id: number;
   title: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
   color: string;
   detailContent: {
     overview: string;

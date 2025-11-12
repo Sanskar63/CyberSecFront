@@ -1,9 +1,9 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Navbar from "@/Components/Navbar";
 import NewsCard from "@/Components/NewsCard";
 import NewsFilters from "@/Components/NewsFilters";
-import { Calendar, Filter, Grid, List, X } from "lucide-react";
+import { Grid, List, X } from "lucide-react";
 
 export interface NewsArticle {
   id: number;
@@ -187,22 +187,7 @@ const NewsPage = () => {
     }
   ];
 
-  useEffect(() => {
-    // Simulate API call
-    const timer = setTimeout(() => {
-      setNews(mockNewsData);
-      setFilteredNews(mockNewsData);
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    filterNews();
-  }, [filters, news]);
-
-  const filterNews = () => {
+  const filterNews = useCallback(() => {
     let filtered = [...news];
 
     // Filter by category
@@ -215,7 +200,6 @@ const NewsPage = () => {
     // Filter by date range
     if (filters.dateRange !== 'all') {
       const now = new Date();
-      const articleDate = new Date();
       
       filtered = filtered.filter(article => {
         const articleDate = new Date(article.date);
@@ -248,7 +232,24 @@ const NewsPage = () => {
 
     setFilteredNews(filtered);
     setCurrentPage(1);
-  };
+  }, [filters, news]);
+
+  useEffect(() => {
+    // Simulate API call
+    const timer = setTimeout(() => {
+      setNews(mockNewsData);
+      setFilteredNews(mockNewsData);
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (news.length > 0) {
+      filterNews();
+    }
+  }, [filterNews, news]);
 
   const handleFilterChange = (newFilters: FilterState) => {
     setFilters(newFilters);
@@ -396,6 +397,7 @@ const NewsPage = () => {
             >
               <X className="w-6 h-6 text-gray-500" />
             </button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={expandedNews.thumbnail}
               alt={expandedNews.title}

@@ -16,43 +16,43 @@ const NewsSection = () => {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Mock cyber security news data
-  const mockCyberNews = [
-    {
-      id: 1,
-      title: "Major Data Breach Affects 50 Million Users Worldwide",
-      description: "A sophisticated cyber attack on a leading social media platform has compromised personal information of millions of users, highlighting the importance of regular security updates.",
-      date: "2024-09-25",
-      category: "Data Breach",
-      readTime: "3 min read"
-    },
-    {
-      id: 2,
-      title: "New Phishing Campaign Targets Online Banking Customers",
-      description: "Security researchers have identified a new wave of phishing emails specifically targeting banking customers with fake security alerts and password reset requests.",
-      date: "2024-09-24",
-      category: "Phishing",
-      readTime: "4 min read"
-    },
-    {
-      id: 3,
-      title: "Ransomware Attacks on Small Businesses Increase by 40%",
-      description: "Latest cybersecurity report shows a significant rise in ransomware attacks targeting small and medium enterprises, emphasizing the need for robust backup solutions.",
-      date: "2024-09-23",
-      category: "Ransomware",
-      readTime: "5 min read"
-    },
-    {
-      id: 4,
-      title: "Mobile App Security Flaws Expose Sensitive User Data",
-      description: "Recent audit of popular mobile applications reveals critical vulnerabilities that could allow hackers to access personal information and location data.",
-      date: "2024-09-22",
-      category: "Mobile Security",
-      readTime: "3 min read"
-    }
-  ];
-
   useEffect(() => {
+    // Mock cyber security news data
+    const mockCyberNews = [
+      {
+        id: 1,
+        title: "Major Data Breach Affects 50 Million Users Worldwide",
+        description: "A sophisticated cyber attack on a leading social media platform has compromised personal information of millions of users, highlighting the importance of regular security updates.",
+        date: "2024-09-25",
+        category: "Data Breach",
+        readTime: "3 min read"
+      },
+      {
+        id: 2,
+        title: "New Phishing Campaign Targets Online Banking Customers",
+        description: "Security researchers have identified a new wave of phishing emails specifically targeting banking customers with fake security alerts and password reset requests.",
+        date: "2024-09-24",
+        category: "Phishing",
+        readTime: "4 min read"
+      },
+      {
+        id: 3,
+        title: "Ransomware Attacks on Small Businesses Increase by 40%",
+        description: "Latest cybersecurity report shows a significant rise in ransomware attacks targeting small and medium enterprises, emphasizing the need for robust backup solutions.",
+        date: "2024-09-23",
+        category: "Ransomware",
+        readTime: "5 min read"
+      },
+      {
+        id: 4,
+        title: "Mobile App Security Flaws Expose Sensitive User Data",
+        description: "Recent audit of popular mobile applications reveals critical vulnerabilities that could allow hackers to access personal information and location data.",
+        date: "2024-09-22",
+        category: "Mobile Security",
+        readTime: "3 min read"
+      }
+    ];
+
     // Simulate API call
     const timer = setTimeout(() => {
       setNews(mockCyberNews);

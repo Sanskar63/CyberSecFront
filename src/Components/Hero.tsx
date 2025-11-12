@@ -10,12 +10,10 @@ const Hero = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [isTransitioning, setIsTransitioning] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => prevIndex + 1);
-      setIsTransitioning(true);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -25,7 +23,6 @@ const Hero = () => {
     // If we reach the clone of the first image (after the last real image)
     if (currentIndex === images.length + 1) {
       setTimeout(() => {
-        setIsTransitioning(false); // remove animation
         setCurrentIndex(1); // jump back to real first
       }, 500); // must match transition duration
     }
@@ -33,7 +30,6 @@ const Hero = () => {
     // If we reach the clone of the last image (before the first real image)
     if (currentIndex === 0) {
       setTimeout(() => {
-        setIsTransitioning(false);
         setCurrentIndex(images.length); // jump to real last
       }, 500);
     }

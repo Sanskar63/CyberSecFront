@@ -69,7 +69,7 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            People's Views
+            People&apos;s Views
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Hear what our community members say about their experience with CyberSaarthi
@@ -92,11 +92,12 @@ const TestimonialsSection = () => {
               
               {/* Testimonial Text */}
               <p className="text-gray-700 mb-6 leading-relaxed">
-                "{testimonial.text}"
+                &quot;{testimonial.text}&quot;
               </p>
               
               {/* User Info */}
               <div className="flex items-center gap-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.name}
@@ -107,7 +108,7 @@ const TestimonialsSection = () => {
                     {testimonial.name}
                   </h4>
                   <p className="text-sm text-gray-600">
-                    {testimonial.role}
+                    {testimonial.role.replace(/"/g, "&quot;")}
                   </p>
                 </div>
               </div>

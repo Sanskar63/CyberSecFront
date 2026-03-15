@@ -55,7 +55,7 @@ const Hero = () => {
         <div className="text-center text-white px-4 max-w-4xl">
           <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-1.5 mb-6 text-sm text-cyan-300">
             <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-            AI-Powered Cybersecurity Companion
+            Sponsored by ICSSR-Indian Council of Social Science Research
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Welcome to{" "}
